@@ -28,24 +28,25 @@
       <button id="exitButton">Exit</button>
     </div>
   </div>
-  
-<!-- Mobile Start Button -->
-  <div class="mobile-play">
-    <button id="mobilePlayButton">▶ Start</button>
-  </div>
 
   <div class="touch-controls">
     <button id="leftBtn">⬅️</button>
     <button id="rightBtn">➡️</button>
   </div>
-
+  
+<!-- Mobile Start Button -->
+  <div class="mobile-play">
+    <button id="mobilePlayButton">▶ Play</button>
+    <button id="exitButtonMobile">Exit</button>
+  </div>
+  
   <script>
     document.getElementById('mobilePlayButton').addEventListener('click', function () {
       const playBtn = document.getElementById('playButton');
       if (playBtn) {
         playBtn.click(); // Simulates desktop play button
       }
-      this.style.display = 'none'; // Hide mobile button after start
+      // this.style.display = 'none'; // Hide mobile button after start
     });
   </script>
 
