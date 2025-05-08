@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space Invader</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-container">
+    <canvas id="gameCanvas"></canvas>
+  </div>
+
+  <div class="main">
+    <div class="instructions">
+      <h1>INSTRUCTIONS</h1>
+      <ul>
+        <li>Use <u>Arrow Keys</u> or <u>Touch Buttons</u> on mobile to move.</li>
+        <li><i>Left arrow key</i> or button = move left.</li>
+        <li><i>Right arrow key</i> or button = move right.</li>
+        <li><i>Spacebar</i> to shoot (not available on mobile).</li>
+        <li>Pause & Resume with buttons below.</li>
+      </ul>
+    </div>
+    <div class="btn">
+      <button id="playButton">Play</button>
+      <button id="pauseResumeButton">Pause</button>
+      <button id="exitButton">Exit</button>
+    </div>
+  </div>
+  
+<!-- Mobile Start Button -->
+  <div class="mobile-play">
+    <button id="mobilePlayButton">▶ Start</button>
+  </div>
+
+  <div class="touch-controls">
+    <button id="leftBtn">⬅️</button>
+    <button id="rightBtn">➡️</button>
+  </div>
+
+  <script>
+    document.getElementById('mobilePlayButton').addEventListener('click', function () {
+      const playBtn = document.getElementById('playButton');
+      if (playBtn) {
+        playBtn.click(); // Simulates desktop play button
+      }
+      this.style.display = 'none'; // Hide mobile button after start
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

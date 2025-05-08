@@ -1,0 +1,133 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #000;
+  margin: 0;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.game-container {
+  width: 100%;
+  max-width: 800px;
+  position: relative;
+  background-color: #111;
+  border: 1px solid #fff;
+}
+
+canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.main {
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  margin-top: 20px;
+  color: #fff;
+}
+
+.instructions h1 {
+  color: red;
+  font-size: 1.5rem;
+}
+
+.instructions ul li {
+  margin-top: 7px;
+  font-size: 1rem;
+}
+
+.instructions ul li i {
+  color: red;
+}
+
+.btn {
+  text-align: center;
+  margin-top: 30px;
+}
+
+button {
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.2rem;
+  width: 180px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 5px 10px;
+  cursor: pointer;
+  background-color: #444;
+  color: white;
+  border: none;
+}
+
+button:hover {
+  background-color: rgb(156, 156, 156);
+  color: #fff;
+}
+
+.btn #playButton {
+  background-color: #14919b;
+}
+
+.btn #playButton:hover {
+  background-color: #3fd3de;
+}
+
+.touch-controls {
+  display: none;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.touch-controls button {
+  background-color: #333;
+  color: white;
+  font-size: 24px;
+  padding: 20px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.mobile-play {
+    display: none;
+    margin: 20px auto;
+  }
+  
+  .mobile-play button {
+    background-color: #007bff;
+    color: white;
+    font-size: 1.5rem;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+@media (max-width: 768px) {
+  .touch-controls {
+    display: flex;
+  }
+
+  .main {
+    display: none;
+  }
+
+  .game-container {
+    border: none;
+  }
+
+  canvas {
+    width: 100%;
+    height: auto;
+  }
+
+  .mobile-play {
+    display: block;
+  }
+}
