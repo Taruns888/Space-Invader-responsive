@@ -280,6 +280,45 @@ document.getElementById('pauseResumeButton').addEventListener('click', () => {
 document.getElementById('exitButton').addEventListener('click', exitGame);
 
 // Mobile touch controls
+const mobilePlayButton = document.getElementById('mobilePlayButton');
+const exitButtonMobile = document.getElementById('exitButtonMobile');
+
+mobilePlayButton.addEventListener('click', () => {
+  if (isGameOver) {
+    isGameOver = false;
+    score = 0;
+    bullets = [];
+    monsterBullets = [];
+    enemies = [];
+    monster = null;
+    bulletRate = initialBulletRate;
+    resizeCanvas();
+    playerWidth = canvas.width * 0.08;
+    playerHeight = canvas.height * 0.1;
+    playerSpeed = canvas.width * 0.02;
+    playerX = canvas.width / 2 - playerWidth / 2;
+    playerY = canvas.height - playerHeight - 10;
+    mobilePlayButton.textContent = 'Pause';
+    startGame();
+  } else if (isPaused) {
+    resumeGame();
+    mobilePlayButton.textContent = 'Pause';
+  } else {
+    pauseGame();
+    mobilePlayButton.textContent = 'Resume';
+  }
+
+  if (isGameOver) {
+    mobilePlayButton.textContent = 'Restart';
+  }
+});
+
+exitButtonMobile.addEventListener('click', () => {
+  exitGame();
+  mobilePlayButton.textContent = 'Play';
+});
+
+// Mobile left-right controls
 const leftBtn = document.getElementById('leftBtn');
 const rightBtn = document.getElementById('rightBtn');
 
@@ -308,3 +347,17 @@ rightBtn.addEventListener('touchstart', () => {
   handleTouchMove();
 });
 rightBtn.addEventListener('touchend', () => isHoldingRight = false);
+
+// Exit function on mobile screen
+function exitGame() {
+  clearInterval(gameInterval);
+  clearInterval(enemyInterval);
+  clearInterval(bulletInterval);
+  clearInterval(monsterBulletInterval);
+  isGameOver = true;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = '#f00';
+  ctx.font = '50px Arial';
+  ctx.fillText('Game Exited', canvas.width / 2 - 150, canvas.height / 2);
+  mobilePlayButton.textContent = 'Play'; // Add this line
+}
